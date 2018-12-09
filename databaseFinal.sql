@@ -18,13 +18,11 @@ ALTER TABLE log ADD CONSTRAINT FOREIGN KEY log_fk_member(memberID) REFERENCES me
 ALTER TABLE log ADD CONSTRAINT FOREIGN KEY log_fk_instrument(instrumentID) REFERENCES instrument(instrumentID) ON UPDATE CASCADE ON DELETE RESTRICT;
 ALTER TABLE work ADD CONSTRAINT FOREIGN KEY work_fk_member(memberID) REFERENCES member(memberID) ON UPDATE CASCADE ON DELETE RESTRICT;
 
-# create some indexes
 CREATE INDEX whole_name ON member(fName, lName);
 CREATE INDEX time_of_use ON log(startTime, endTime);
 CREATE INDEX in_use ON instrument(inUse);
 CREATE INDEX work_date ON work(wDate);
 
-# insert into members
 INSERT INTO member VALUES (0001,'Danny','Maurer','Aviation'),
 (0002,	'Alana','Dunne',	'Microbial Fuel Cells'),
 (0003,	'Maria','Salinas',	'CMP'),
@@ -50,16 +48,6 @@ INSERT INTO member VALUES (0001,'Danny','Maurer','Aviation'),
 (0023,	'Katie',	'Wortman',	'CMP'),
 (0024,	'Carolyn',	'Werr',	'Hydrogel');
 
-# insert into log
-INSERT INTO log VALUES (100000,'12/1/18','9:00','13:00',	0001	,	1000),
-(100001	,	'12/2/18'	,	'10:00'	,	'14:00'	,	0013	,	2400),
-(100002	,	'12/3/18'	,	'11:00'	,	'15:00'	,	0007	,	1700),
-(100003	,	'12/4/18'	,	'12:00'	,	'16:00'	,	0022	,	2100),
-(100004	,	'12/5/18'	,	'13:00'	,	'17:00'	,	0011	,	3000),
-(100005	,	'12/6/18'	,	'14:00'	,	'18:00'	,	0016	,	1200),
-(100006	,	'12/7/18'	,	'15:00'	,	'19:00'	,	0024	,	2700);
-
-# insert into instrument
 INSERT INTO instrument VALUES (1000,	'Creality 3D Printer',	'Print 3D objects using PLA filament',	FALSE),
 (1100,	'RedTide','Measure UV-VIS absorbance spectra',	FALSE),
 (1200,	'InstaPot','Sterilize glassware and solutions',	FALSE),
@@ -83,14 +71,20 @@ INSERT INTO instrument VALUES (1000,	'Creality 3D Printer',	'Print 3D objects us
 (3000,	'Reflectometer','Film thickness measurements', 	FALSE),
 (3100,	'Malvern','Particle size and zeta potential', 	FALSE);
 
-# insert into work: workID auto increment, time in, time out, date, goal, member id
+INSERT INTO log VALUES (100000,'12/1/18','9:00','13:00',	0001	,	1000),
+(100001	,	'12/2/18'	,	'10:00'	,	'14:00'	,	0013	,	2400),
+(100002	,	'12/3/18'	,	'11:00'	,	'15:00'	,	0007	,	1700),
+(100003	,	'12/4/18'	,	'12:00'	,	'16:00'	,	0022	,	2100),
+(100004	,	'12/5/18'	,	'13:00'	,	'17:00'	,	0011	,	3000),
+(100005	,	'12/6/18'	,	'14:00'	,	'18:00'	,	0016	,	1200),
+(100006	,	'12/7/18'	,	'15:00'	,	'19:00'	,	0024	,	2700);
+
 INSERT INTO work(timeIn, timeOut, wDate, goal, memberID) VALUES ('10:00', '12:00', '10/5/18', 'Design cell holder for blocking efficiency testing', 0001),
 ('6:00', '15:00', '11/15/18', 'Look into the viability of using new substances', 0007),
 ('5:00', '16:00', '12/8/18', 'See if adding silver nano-particles helos kill time', 0010);
 
-# create users
 CREATE USER 'dannymaurer'@'localhost'  identified by 'databasefinal';
-GRANT SELECT, INSERT, UPDATE, DELETE on databaseFinal.* TO 'dannymaurer'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE on dkLabs.* TO 'dannymaurer'@'localhost’;
 
 
 

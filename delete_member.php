@@ -18,7 +18,7 @@
    // echo"Delete isbn $isbn"; 
     
     //connect to the database
-    @$db = new mysqli('localhost', 'dannymaurer', 'databasefinal', 'databaseFinal');
+    @$db = new mysqli('localhost', 'dannymaurer', 'databasefinal', 'dkLabs');
 
 
     if ($db->connect_error) {

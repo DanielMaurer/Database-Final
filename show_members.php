@@ -12,14 +12,14 @@
     <main role="main" class="container-fluid">
         <h1>Member Index</h1>
 <?php
-    @ $db = new mysqli('localhost', 'dannymaurer', 'databasefinal', 'databaseFinal'); // will have to create a sample user
+    @ $db = new mysqli('localhost', 'dannymaurer', 'databasefinal', 'dkLabs'); // will have to create a sample user
 
 
     if ($db->connect_error) {
         die('Connect Error ' . $db->connect_errno . ': ' . $db->connect_error);
     }
 
-    $query="SELECT * FROM members";
+    $query="SELECT * FROM member";
     //$result = $db->query($query);
 
     if ($result = $db->query($query)) {
