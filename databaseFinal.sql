@@ -81,10 +81,10 @@ INSERT INTO log VALUES (100000,'12/1/18','9:00','13:00',	0001	,	1000),
 
 INSERT INTO work(timeIn, timeOut, wDate, goal, memberID) VALUES ('10:00', '12:00', '10/5/18', 'Design cell holder for blocking efficiency testing', 0001),
 ('6:00', '15:00', '11/15/18', 'Look into the viability of using new substances', 0007),
-('5:00', '16:00', '12/8/18', 'See if adding silver nano-particles helos kill time', 0010);
+('5:00', '16:00', '12/8/18', 'See if adding silver nano-particles helps kill time', 0010);
 
 CREATE USER 'dannymaurer'@'localhost'  identified by 'databasefinal';
-GRANT SELECT, INSERT, UPDATE, DELETE on dkLabs.* TO 'dannymaurer'@'localhost’;
+GRANT SELECT, INSERT, UPDATE, DELETE on dkLabs.* TO 'dannymaurer'@'localhost';
 
 
 

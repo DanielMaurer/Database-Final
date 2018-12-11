@@ -42,9 +42,11 @@
 			
 			for($i = 0; $i<$num_results; $i++){
 				$row = $result->fetch_assoc();
-				echo "<p><strong>Purpose: ";
-				echo htmlspecialchars(stripslashes($row["purpose"]));
+				echo "<p><strong>Name: ";
+				echo htmlspecialchars(stripslashes($row["insName"]));
 				echo "</strong>";
+				echo "<br />";
+				echo "Purpose: ".stripslashes($row["purpose"]);
 				echo "<br />";
 				echo "Instrument ID: ".stripslashes($row["instrumentID"]);
 				echo "<br />";
@@ -53,7 +55,7 @@
 			}
 			
 		?>
-			
+			<a href="main_page.html">Back Home</a>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<title>DK Labs Delete member</title>
+	<title>DK Labs Delete Lab Entry</title>
 
 
 </head>
@@ -26,16 +26,16 @@
     }
 
 
-    $query = "delete from member where memberID=?"; 
+    $query = "delete from work where memberID=?"; 
     $stmt = $db->prepare($query);
     $stmt->bind_param("s", $memberid);
     $stmt->execute();
-    echo $stmt->affected_rows." member deleted into database";
+    echo $stmt->affected_rows." work deleted from database";
 
     $db->close();
 ?>
     <br/
-    ><a href="show_members.php">Show Members</a> // use a relative path, not a path to my directory
+    ><a href="show_work.php">Show Work</a> // use a relative path, not a path to my directory
 </main>
 </body>
 

@@ -10,7 +10,7 @@
 </head>
 <body>
     <main role="main" class="container-fluid">
-        <h1>Member Index</h1>
+        <h1>Instrument Index</h1>
 <?php
     @ $db = new mysqli('localhost', 'dannymaurer', 'databasefinal', 'dkLabs'); // will have to create a sample user
 
@@ -19,7 +19,7 @@
         die('Connect Error ' . $db->connect_errno . ': ' . $db->connect_error);
     }
 
-    $query="SELECT * FROM member";
+    $query="SELECT * FROM instrument";
     //$result = $db->query($query);
 
     if ($result = $db->query($query)) {
@@ -46,13 +46,10 @@
             for ($i=0; $i<$num_fields; $i++) {
                 echo "<td>". stripslashes($row[$i])."</td>";
             }
-            echo "<td><a href = 'new_work.php?memberID=$row[0]'> New Work</></td>";
-            echo "</tr>";
         }
 
         $result->close();
         echo "</table>";
-        
     }
 
     $db->close();

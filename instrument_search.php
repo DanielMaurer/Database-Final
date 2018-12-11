@@ -19,8 +19,7 @@
 	<div class="form-group">
 		<label for="searchtype">Select Search Term</label>
 		<select class="form-control" id="searchtype" name="searchtype">
-			<option value = "instrumentID">Instrument ID</option>
-			<option value = "purpose">Purpose</option>
+			<option value = "insName">Instrument Name</option>
 			<option value = "inUse">In Use</option>
 		</select>
 	</div>

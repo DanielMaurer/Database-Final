@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<title>Show Members</title>
+	<title>Show Work</title>
 </head>
 <body>
     <main role="main" class="container-fluid">
-        <h1>Member Index</h1>
+        <h1>Work Index</h1>
 <?php
     @ $db = new mysqli('localhost', 'dannymaurer', 'databasefinal', 'dkLabs'); // will have to create a sample user
 
@@ -19,7 +19,7 @@
         die('Connect Error ' . $db->connect_errno . ': ' . $db->connect_error);
     }
 
-    $query="SELECT * FROM member";
+    $query="SELECT  m.fName, m.lName, workID, timeIn, timeOut, wDate, goal FROM work w JOIN member m ON m.memberID = w.memberID;";
     //$result = $db->query($query);
 
     if ($result = $db->query($query)) {
@@ -46,13 +46,10 @@
             for ($i=0; $i<$num_fields; $i++) {
                 echo "<td>". stripslashes($row[$i])."</td>";
             }
-            echo "<td><a href = 'new_work.php?memberID=$row[0]'> New Work</></td>";
-            echo "</tr>";
         }
 
         $result->close();
         echo "</table>";
-        
     }
 
     $db->close();
