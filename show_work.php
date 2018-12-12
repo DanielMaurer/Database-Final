@@ -46,6 +46,8 @@
             for ($i=0; $i<$num_fields; $i++) {
                 echo "<td>". stripslashes($row[$i])."</td>";
             }
+            echo "<td><a href = 'delete_work.php?memberID=$row[0]'> Delete </></td>";
+            echo "</tr>";
         }
 
         $result->close();
